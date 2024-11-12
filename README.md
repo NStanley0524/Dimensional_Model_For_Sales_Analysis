@@ -106,7 +106,8 @@ These key pieces of information are:
 
 
 
-# Type of Analysis the Business MIght Need
+
+# Type of Analysis the Business Might Need
 
 
 ## Sales Performance Analysis
@@ -147,6 +148,7 @@ These key pieces of information are:
 
 1. Accurate calculation and reporting of sales tax.
 2. Ensuring timely payments and filings to avoid penalties.
+
 
 
 
@@ -275,6 +277,7 @@ The following are the dimensions gotten from the invoice sample:
 **Month**: The month of the transaction.
 
 **Year**: The year of the transaction.
+
 
 
 
