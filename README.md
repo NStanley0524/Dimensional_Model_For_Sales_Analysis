@@ -6,6 +6,14 @@ This project showcases a dimensional model built for analyzing sales and service
 # Table of Contents
 
 [Project Overview](##project-overview)
+[Understanding the Business Requirements](#understanding-the-business-requirements)
+[Type of Analysis The Business Needs](#type-of-analysis-the-business-might-need)
+[Understanding The Facts and Dimensions](#identifying-the-facts-and-dimensions)
+[Designing the Facts Table](#facts-table)
+[Designing The Dimensions Table](#dimensions-table)
+[Creatng an E-R Diagram](#er-diagrams-representing-facts-and-dimensions-table)
+[Loading Data Into Tables](#loading-data-into-tables)
+[Business Questions](#business-questions)
 
 
 ## Project Overview
@@ -357,7 +365,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Vehicle_Dim` (
 ````
 
 
-# Service Dimension Table
+### Service Dimension Table
 
 [![image](https://github.com/user-attachments/assets/d67bec0a-df5c-4252-bb1a-f420b7d38b94)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/S.%20Dim.png)
 
@@ -381,7 +389,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Service_Dim` (
 ````
 
 
-# Parts Dimension Table
+### Parts Dimension Table
 
 [![image](https://github.com/user-attachments/assets/57fe6fa6-4689-4016-a8ae-486ee303208a)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/Parts.%20Dim.png)
 
@@ -405,7 +413,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Parts_Dim` (
 ````
 
 
-# Location Dimension Table
+### Location Dimension Table
 
 [![image](https://github.com/user-attachments/assets/adf14a3b-0098-46af-926e-3487bc41f730)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/L.Dim.png)
 
@@ -429,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Location_Dim` (
 ````
 
 
-# Date Dimension Table
+### Date Dimension Table
 
 [![image](https://github.com/user-attachments/assets/3134da05-95d2-4458-9061-e495c35f11c5)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/Date.Dim.png)
 
@@ -483,7 +491,7 @@ Example of loading data into the tables:
 [![image](https://github.com/user-attachments/assets/acd5fc9b-cc54-4753-af6e-32e591f1e3da)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Load%20data.png)
 
 
-# E-R Diagram Showing The Relationships Between The Tables
+## E-R Diagram Showing The Relationships Between The Tables
 
 [![image](https://github.com/user-attachments/assets/d2d2da1b-cda2-42e6-a9ad-d5eb7a42e210)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Er.%20data.png)
 
