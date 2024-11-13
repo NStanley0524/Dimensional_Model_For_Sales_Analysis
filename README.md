@@ -461,3 +461,11 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Date_Dim` (
 
 ![image](https://github.com/user-attachments/assets/4bf8c158-aa5d-41a7-ab7a-e39b8809ef8c)
 
+
+
+
+# Loading Data Into Tables
+
+Data was loaded into the tables, ensuring foreign keys are linked correctly
+
+Data for these tables were gotten from an extended data of the sales receipt that can be accessed [here]
