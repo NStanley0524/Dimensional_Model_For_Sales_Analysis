@@ -6,13 +6,21 @@ This project showcases a dimensional model built for analyzing sales and service
 # Table of Contents
 
 [Project Overview](##project-overview)
+
 [Understanding the Business Requirements](#understanding-the-business-requirements)
+
 [Type of Analysis The Business Needs](#type-of-analysis-the-business-might-need)
+
 [Understanding The Facts and Dimensions](#identifying-the-facts-and-dimensions)
+
 [Designing the Facts Table](#facts-table)
+
 [Designing The Dimensions Table](#dimensions-table)
+
 [Creatng an E-R Diagram](#er-diagrams-representing-facts-and-dimensions-table)
+
 [Loading Data Into Tables](#loading-data-into-tables)
+
 [Business Questions](#business-questions)
 
 
