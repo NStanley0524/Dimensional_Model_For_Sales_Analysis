@@ -3,7 +3,7 @@
 This project showcases a dimensional model built for analyzing sales and service transactions in the automotive industry
 
 
-# Project Overview
+## Project Overview
 
 The model is designed to support reporting and data analysis on sales revenue, parts usage, customer behavior, and service performance across different locations. Using SQL for data structure creation and querying, this project demonstrates a practical approach to building a data warehouse-style solution that supports a range of business insights. The goal is to extract meaningful insights using SQL and generate reports that can help the business optimize its operations, improve customer satisfaction, and increase profitability.
 
@@ -21,7 +21,7 @@ The objective of this project is to provide a comprehensive view of automotive s
 
 The data source for this analysis is gotten from a sample sales invoice containing information recorded for auto service. From this sample invoice, we are going to infer a dimensional data model.
 
-<img width="569" alt="salesreceipt" src="https://github.com/user-attachments/assets/3d941d18-5cb3-44c9-8050-74be668b1f93">
+[<img width="569" alt="salesreceipt" src="https://github.com/user-attachments/assets/3d941d18-5cb3-44c9-8050-74be668b1f93">](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Sales_Invoice/salesreceipt.png)
 
 
 # Technical Details
@@ -29,7 +29,7 @@ The data source for this analysis is gotten from a sample sales invoice containi
 - SQL, MYSQL
 - Power BI
 - Data Modelling : Dimensional modeling (star schema) with fact and dimension tables optimized for analysis and reporting.
-- 
+  
 
 # Steps To Create the Dimensional Model
 
@@ -102,7 +102,6 @@ These key pieces of information are:
 4. Sales Tax Rate: 13%
 5. Sales Tax Amount: $207.33
 6. Total Amount Due: $1,802.20
-
 
 
 
@@ -283,7 +282,7 @@ The following are the dimensions gotten from the invoice sample:
 
 # Facts Table
 
-![image](https://github.com/user-attachments/assets/13f97d42-98a0-4909-b7f1-cfc0dcc8359b)
+[![image](https://github.com/user-attachments/assets/13f97d42-98a0-4909-b7f1-cfc0dcc8359b)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/Facts.png)
 
 
 **Primary key**: **Sales ID**
