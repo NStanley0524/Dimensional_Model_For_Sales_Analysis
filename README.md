@@ -304,7 +304,7 @@ The full code for the Fact script can be found [Here](https://github.com/NStanle
 
 ### Customer Dimension Table
 
-![image](https://github.com/user-attachments/assets/38795f2e-d73d-45c6-bd73-2937ca6723a2)
+[![image](https://github.com/user-attachments/assets/38795f2e-d73d-45c6-bd73-2937ca6723a2)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/C.%20Dim.png)
 
 
 **Primary Key**: **Customer ID**
@@ -327,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Customer_Dim` (
 
 ### Vehicle Dimension Table
 
-![image](https://github.com/user-attachments/assets/4796c12b-c9ac-4f7d-ac70-ab4dfa1a3b96)
+[![image](https://github.com/user-attachments/assets/4796c12b-c9ac-4f7d-ac70-ab4dfa1a3b96)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/V.Dim.png)
 
 
 **Primary Key** : **Vehicle ID**
@@ -354,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Vehicle_Dim` (
 
 # Service Dimension Table
 
-![image](https://github.com/user-attachments/assets/d67bec0a-df5c-4252-bb1a-f420b7d38b94)
+[![image](https://github.com/user-attachments/assets/d67bec0a-df5c-4252-bb1a-f420b7d38b94)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/S.%20Dim.png)
 
 
 **Primary Key**: **Service ID**
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Service_Dim` (
 
 # Parts Dimension Table
 
-![image](https://github.com/user-attachments/assets/57fe6fa6-4689-4016-a8ae-486ee303208a)
+[![image](https://github.com/user-attachments/assets/57fe6fa6-4689-4016-a8ae-486ee303208a)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/Parts.%20Dim.png)
 
 
 **Primary Key**: **Part ID**
@@ -402,7 +402,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Parts_Dim` (
 
 # Location Dimension Table
 
-![image](https://github.com/user-attachments/assets/adf14a3b-0098-46af-926e-3487bc41f730)
+[![image](https://github.com/user-attachments/assets/adf14a3b-0098-46af-926e-3487bc41f730)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/L.Dim.png)
 
 
 **Primary Key**: **Location ID**
@@ -426,7 +426,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Location_Dim` (
 
 # Date Dimension Table
 
-![image](https://github.com/user-attachments/assets/3134da05-95d2-4458-9061-e495c35f11c5)
+[![image](https://github.com/user-attachments/assets/3134da05-95d2-4458-9061-e495c35f11c5)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Facts_and_Dimensions/Date.Dim.png)
 
 
 **Primary Key**: **Date**
@@ -452,7 +452,7 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Date_Dim` (
 
 # E-R Diagram Representing Facts and Dimensions Table
 
-![E-R Diagram](https://github.com/user-attachments/assets/28e7368d-dd7b-452d-8be3-b98310ee7920)
+[![E-R Diagram](https://github.com/user-attachments/assets/28e7368d-dd7b-452d-8be3-b98310ee7920)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/E-R%20Diagrams/E-R%20Diagram.png)
 
 
 
@@ -475,18 +475,18 @@ Data for these tables were gotten from an extended data of the sales receipt tha
 
 Example of loading data into the tables:
 
-![image](https://github.com/user-attachments/assets/acd5fc9b-cc54-4753-af6e-32e591f1e3da)
+[![image](https://github.com/user-attachments/assets/acd5fc9b-cc54-4753-af6e-32e591f1e3da)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Load%20data.png)
 
 
 # E-R Diagram Showing The Relationships Between The Tables
 
-![image](https://github.com/user-attachments/assets/d2d2da1b-cda2-42e6-a9ad-d5eb7a42e210)
+[![image](https://github.com/user-attachments/assets/d2d2da1b-cda2-42e6-a9ad-d5eb7a42e210)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Er.%20data.png)
 
 
 
 # Business Questions
 
-1. IDENTIFY THE TOP 5 CUSTOMERS WHO HAVE SPENT THE MOST ON VEHICLE REPAIRS AND PARTS
+**1. IDENTIFY THE TOP 5 CUSTOMERS WHO HAVE SPENT THE MOST ON VEHICLE REPAIRS AND PARTS**
 ````sql
 select Customer_name, Total
 from Customer join Invoice
@@ -496,18 +496,18 @@ limit 5;
 ````
 **Visual**
 
-![image](https://github.com/user-attachments/assets/fe6cec34-fca0-4e6d-9c20-a90e85798dc0)
+[![image](https://github.com/user-attachments/assets/fe6cec34-fca0-4e6d-9c20-a90e85798dc0)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Insights/Customers.png)
 
 
 
-2. DETERMINE THE AVERAGE SPEND OF CUSTOMERS ON REPAIRS AND PARTS
+**2. DETERMINE THE AVERAGE SPEND OF CUSTOMERS ON REPAIRS AND PARTS**
 ````sql
 select Customer_name, round(avg(Total), 2) as Average_spending from Customer join Invoice
 on Customer.Customer_id = Invoice.Customer_id
 group by Customer_name;
 ````
 
-3. ANALYZE THE FREQUENCY OF CUSTOMER VISITS AND IDENTIFY ANY PATTERNS
+**3. ANALYZE THE FREQUENCY OF CUSTOMER VISITS AND IDENTIFY ANY PATTERNS**
 ````sql
 select Customer_name, count(invoice_date) as Frequency, year(invoice_date) as Year, monthname(invoice_date) as Month, day(invoice_date) as Day
 from Customer join Invoice
@@ -515,12 +515,12 @@ on Customer.Customer_id = Invoice.Customer_id
 group by Customer_name, Year,Month,Day;
 ````
 
-4. CALCULATE THE AVERAGE MILEAGE OF VEHICLES SERVICED
+**4. CALCULATE THE AVERAGE MILEAGE OF VEHICLES SERVICED**
 ````sql
 select round(avg(Mileage), 2) as Average_Mileage from Vehicle;
 ````
 
-5. ANALYZE THE MOST COMMON VEHICLE MODELS AND MAKES BROUGHT IN FOR SERVICE
+**5. ANALYZE THE MOST COMMON VEHICLE MODELS AND MAKES BROUGHT IN FOR SERVICE**
 ````sql
 select Make, Model, Vehicle.VIN, Count(Job.VIN) as Most_common
 from Vehicle join Job
@@ -530,7 +530,7 @@ order by Most_common desc
 limit 1;
 ````
 
-6. ANALYZE THE DISTRIBUTION OF VEHICLE AGES AND IDENTIFY ANY TRENDS
+**6. ANALYZE THE DISTRIBUTION OF VEHICLE AGES AND IDENTIFY ANY TRENDS**
 ````sql
 select Year, count(J.Vehicle_ID) as frequency
 from vehicle join jobs
@@ -539,7 +539,7 @@ group by Year
 order by frequency;
 ````
 
-7. DETERMINE THE MOST COMMON TYPES OF JOBS PERFORMED AND THEIR FREQUENCY
+**7. DETERMINE THE MOST COMMON TYPES OF JOBS PERFORMED AND THEIR FREQUENCY**
 ````sql
 select count(Description) as Frequency, Description as Job_type, Job.JobID
 from Job
@@ -548,7 +548,7 @@ order by frequency desc
 limit 1;
 ````
 
-8. CALCULATE THE TOTAL REVENUE GENERATED FOR EACH TYPE PF JOB
+**8. CALCULATE THE TOTAL REVENUE GENERATED FOR EACH TYPE PF JOB**
 ````sql
 select Job.JobID, Description as Job_type, sum(Amount) as Total revenue
 from Job 
@@ -558,11 +558,11 @@ order by Total_revenue desc;
 
 **Visual**
 
-![image](https://github.com/user-attachments/assets/a2c8ef54-1fa0-4b1d-bade-11926b21dcd7)
+[![image](https://github.com/user-attachments/assets/a2c8ef54-1fa0-4b1d-bade-11926b21dcd7)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Insights/Revenue.png)
 
 
 
-9. IDENTIFY THE JOB WITH THE HIGHEST AND LOWEST AVERAGE COST
+**9. IDENTIFY THE JOB WITH THE HIGHEST AND LOWEST AVERAGE COST**
 ````sql
 select Job.JobID, Description, round(avg(Job.Amount), 2) as Average_cost
 from Job 
@@ -570,7 +570,7 @@ group by JobID, Description
 order by Average_cost desc;
 ````
 
-10. LIST THE TOP 5 MOST FREQUENTLY USED PART AND THEIR TOTAL USAGE
+**10. LIST THE TOP 5 MOST FREQUENTLY USED PART AND THEIR TOTAL USAGE**
 ````sql
 select part_name, sum(Quantity) as Frequency
 from parts
@@ -581,21 +581,21 @@ limit 5;
 
 **Visual**
 
-![image](https://github.com/user-attachments/assets/437017b2-e75b-4de8-8dca-05007aa2a135)
+[![image](https://github.com/user-attachments/assets/437017b2-e75b-4de8-8dca-05007aa2a135)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Insights/Parts.png)
 
 
 
-11. CALCULATE THE AVERAGE COST OF PARTS USED FOR REPAIRS
+**11. CALCULATE THE AVERAGE COST OF PARTS USED FOR REPAIRS**
 ````sql
 select round(avg(Amount), 2) as Average_Cost from Parts;
 ````
 
-12. DETERMINE THE TOTAL REVENUE GENERATED FROM PART SALES
+**12. DETERMINE THE TOTAL REVENUE GENERATED FROM PART SALES**
 ````sql
 select sum(Amount) as Total_revenue from Parts;
 ````
 
-13. CALCULATE THE TOTAL REVENUE GENERATED FROM LABOR AND PARTS FOR EACH MONTH
+**13. CALCULATE THE TOTAL REVENUE GENERATED FROM LABOR AND PARTS FOR EACH MONTH**
 ````sql
 select sum(Total_labour) as Labour_revenue, sum(Total_parts) as part_revenue, year(invoice_date) as Year,monthname(invoice_date) as Month
 from invoice
@@ -604,19 +604,16 @@ group by Year,Month;
 
 **Visual**
 
-![image](https://github.com/user-attachments/assets/d75cacd8-b962-4322-9e3b-50185757a76f)
+[![image](https://github.com/user-attachments/assets/d75cacd8-b962-4322-9e3b-50185757a76f)](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Images/Insights/Total%20Revenue.png)
 
 
-14. DETERMINE THE OVERALL PROFITABILITY OF THE REPAR SHOP
+**14. DETERMINE THE OVERALL PROFITABILITY OF THE REPAR SHOP**
 ````sql
 select sum(Sales_tax) + sum(Total_labour) + sum(Total_parts) as Overall_profitability
 from Invoice;
 ````
 
-15. ANALYZE THE IMOACT OF SALES TAX ON TOTAL REVENUE
+**15. ANALYZE THE IMOACT OF SALES TAX ON TOTAL REVENUE**
 ````sql
 select sum(Total * (1 + Sales_tax_rate)) - sum(Total) as Total_sales_tax from Invoice;
-````
-
-
 ````
