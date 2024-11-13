@@ -466,10 +466,10 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Date_Dim` (
 
 # Loading Data Into Tables
 
-Tables were created to be able to answer various business questions and data was loaded into the tables, ensuring foreign keys are linked correctly.
+Tables were created to be able to answer various business questions and data was loaded into the tables, ensuring tables are indexed for efficient querrying and foreign keys are linked correctly.
 
 
-To see the full scipt for creating the tables, See [here]
+To see the full scipt for creating the tables and indexing, See [here](Code_Scripts/Table_creation_script.sql)
 
 Data for these tables were gotten from an extended data of the sales receipt that can be accessed [here](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/tree/main/Sample_Data)
 
@@ -478,3 +478,146 @@ Example of loading data into the tables:
 
 ![image](https://github.com/user-attachments/assets/acd5fc9b-cc54-4753-af6e-32e591f1e3da)
 
+
+# E-R Diagram Showing The Relationships Between The Tables
+
+![image](https://github.com/user-attachments/assets/d2d2da1b-cda2-42e6-a9ad-d5eb7a42e210)
+
+
+
+# Business Questions
+
+1. IDENTIFY THE TOP 5 CUSTOMERS WHO HAVE SPENT THE MOST ON VEHICLE REPAIRS AND PARTS
+````sql
+select Customer_name, Total
+from Customer join Invoice
+on Customer.Customer_id = Invoice.Customer_id
+order by Total desc
+limit 5;
+````
+**Visual**
+
+![image](https://github.com/user-attachments/assets/fe6cec34-fca0-4e6d-9c20-a90e85798dc0)
+
+
+
+2. DETERMINE THE AVERAGE SPEND OF CUSTOMERS ON REPAIRS AND PARTS
+````sql
+select Customer_name, round(avg(Total), 2) as Average_spending from Customer join Invoice
+on Customer.Customer_id = Invoice.Customer_id
+group by Customer_name;
+````
+
+3. ANALYZE THE FREQUENCY OF CUSTOMER VISITS AND IDENTIFY ANY PATTERNS
+````sql
+select Customer_name, count(invoice_date) as Frequency, year(invoice_date) as Year, monthname(invoice_date) as Month, day(invoice_date) as Day
+from Customer join Invoice
+on Customer.Customer_id = Invoice.Customer_id
+group by Customer_name, Year,Month,Day;
+````
+
+4. CALCULATE THE AVERAGE MILEAGE OF VEHICLES SERVICED
+````sql
+select round(avg(Mileage), 2) as Average_Mileage from Vehicle;
+````
+
+5. ANALYZE THE MOST COMMON VEHICLE MODELS AND MAKES BROUGHT IN FOR SERVICE
+````sql
+select Make, Model, Vehicle.VIN, Count(Job.VIN) as Most_common
+from Vehicle join Job
+on Vehicle.Vehicle_id = Job.Vehicle_id
+group by Make, Model, Vehicle.VIN
+order by Most_common desc
+limit 1;
+````
+
+6. ANALYZE THE DISTRIBUTION OF VEHICLE AGES AND IDENTIFY ANY TRENDS
+````sql
+select Year, count(J.Vehicle_ID) as frequency
+from vehicle join jobs
+on V.Vehicle_ID = J.Vehicle_ID
+group by Year
+order by frequency;
+````
+
+7. DETERMINE THE MOST COMMON TYPES OF JOBS PERFORMED AND THEIR FREQUENCY
+````sql
+select count(Description) as Frequency, Description as Job_type, Job.JobID
+from Job
+group by Description, Job.JobID
+order by frequency desc
+limit 1;
+````
+
+8. CALCULATE THE TOTAL REVENUE GENERATED FOR EACH TYPE PF JOB
+````sql
+select Job.JobID, Description as Job_type, sum(Amount) as Total revenue
+from Job 
+group by Job.JobID, Description
+order by Total_revenue desc;
+````
+
+**Visual**
+
+![image](https://github.com/user-attachments/assets/a2c8ef54-1fa0-4b1d-bade-11926b21dcd7)
+
+
+
+9. IDENTIFY THE JOB WITH THE HIGHEST AND LOWEST AVERAGE COST
+````sql
+select Job.JobID, Description, round(avg(Job.Amount), 2) as Average_cost
+from Job 
+group by JobID, Description
+order by Average_cost desc;
+````
+
+10. LIST THE TOP 5 MOST FREQUENTLY USED PART AND THEIR TOTAL USAGE
+````sql
+select part_name, sum(Quantity) as Frequency
+from parts
+group by part_name
+order by Frequency desc
+limit 5;
+````
+
+**Visual**
+
+![image](https://github.com/user-attachments/assets/437017b2-e75b-4de8-8dca-05007aa2a135)
+
+
+
+11. CALCULATE THE AVERAGE COST OF PARTS USED FOR REPAIRS
+````sql
+select round(avg(Amount), 2) as Average_Cost from Parts;
+````
+
+12. DETERMINE THE TOTAL REVENUE GENERATED FROM PART SALES
+````sql
+select sum(Amount) as Total_revenue from Parts;
+````
+
+13. CALCULATE THE TOTAL REVENUE GENERATED FROM LABOR AND PARTS FOR EACH MONTH
+````sql
+select sum(Total_labour) as Labour_revenue, sum(Total_parts) as part_revenue, year(invoice_date) as Year,monthname(invoice_date) as Month
+from invoice
+group by Year,Month;
+````
+
+**Visual**
+
+![image](https://github.com/user-attachments/assets/d75cacd8-b962-4322-9e3b-50185757a76f)
+
+
+14. DETERMINE THE OVERALL PROFITABILITY OF THE REPAR SHOP
+````sql
+select sum(Sales_tax) + sum(Total_labour) + sum(Total_parts) as Overall_profitability
+from Invoice;
+````
+
+15. ANALYZE THE IMOACT OF SALES TAX ON TOTAL REVENUE
+````sql
+select sum(Total * (1 + Sales_tax_rate)) - sum(Total) as Total_sales_tax from Invoice;
+````
+
+
+````
