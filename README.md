@@ -42,7 +42,7 @@ The data source for this analysis is gotten from a sample sales invoice containi
 
 
 
-# Understanding the business requirement
+# Understanding the Business Requirement
 
 From the sample invoice above, several key pieces of information can be extracted. This information is deemed relevant for sales analysis.
 These key pieces of information are:
@@ -297,4 +297,167 @@ The following are the dimensions gotten from the invoice sample:
 - Date References Date Dim Table(Date)
 
 **Relationship Between Facts Table and Dimension Table** : **Many–To–One Relationship.**
+
+The full code for the Fact script can be found [Here](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/blob/main/Code_Scripts/Fact%20script.sql)
+
+
+# Dimensions Table
+
+### Customer Dimension Table
+
+![image](https://github.com/user-attachments/assets/38795f2e-d73d-45c6-bd73-2937ca6723a2)
+
+
+**Primary Key**: **Customer ID**
+
+**Relationship Between Customer and Facts Table** : **One-To-Many Relationship**
+
+**Logical explanations for my decision**
+The Customer Dimension table is essential for evaluating customer behavior, segmenting them for targeted marketing, and analyzing their spending patterns. Each row represents a distinct consumer, allowing you to monitor their interactions and purchases.
+
+**Customer Id Code snippet**
+````sql
+CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Customer_Dim` (
+  `Customer_ID` INT NOT NULL,
+  `Name` VARCHAR(100) NULL,
+  `Address` VARCHAR(100) NULL,
+  `Company` VARCHAR(100) NULL,
+  `Phone` VARCHAR(100) NULL,
+  PRIMARY KEY (`Customer_ID`))
+````
+
+### Vehicle Dimension Table
+
+![image](https://github.com/user-attachments/assets/4796c12b-c9ac-4f7d-ac70-ab4dfa1a3b96)
+
+
+**Primary Key** : **Vehicle ID**
+
+**Relationship Between Vehicle and Facts Table** : **One-To-Many Relationship**
+
+**Logical Explanation**
+The Vehicle Dimension table facilitates assessing vehicle types, identifying maintenance patterns, and connecting vehicle-specific data to customer information. This dimension enables a detailed analysis of vehicle-related trends.
+
+**Vehicle Dimension Code Snippet**
+````sql
+CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Vehicle_Dim` (
+  `Vehicle_ID` INT NOT NULL,
+  `Make` VARCHAR(45) NULL,
+  `Model` VARCHAR(45) NULL,
+  `Year` INT NULL,
+  `Color` VARCHAR(45) NULL,
+  `VIN` VARCHAR(45) NULL,
+  `Registration_no` VARCHAR(45) NULL,
+  `Mileage` INT NULL,
+  PRIMARY KEY (`Vehicle_ID`))
+````
+
+
+# Service Dimension Table
+
+![image](https://github.com/user-attachments/assets/d67bec0a-df5c-4252-bb1a-f420b7d38b94)
+
+
+**Primary Key**: **Service ID**
+
+**Relationship between Service and Facts Table** : **One-To-Many Relationship**
+
+**Logical Explanation**
+The Service Dimension table offers specific information about service transactions, including labor costs, frequency, and revenue. It enhances comprehension of the business's service-related features.
+
+Service Dimension Code Snippet
+````sql
+CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Service_Dim` (
+  `Service_ID` INT NOT NULL,
+  `Job_Description` VARCHAR(100) NULL,
+  `Hours` DECIMAL(10,2) NULL,
+  `Rate` DECIMAL(10,2) NULL,
+  `Amount` INT NULL,
+  PRIMARY KEY (`Service_ID`))
+````
+
+
+# Parts Dimension Table
+
+![image](https://github.com/user-attachments/assets/57fe6fa6-4689-4016-a8ae-486ee303208a)
+
+
+**Primary Key**: **Part ID**
+
+**Relationship between Parts and Facts Table** : **One-To-Many Relationship**
+
+**Logical Explanation**
+The Part Dimension table helps maintain inventories, understand pricing, and identify frequently used parts. It enables inventory management and cost analysis.
+
+**Parts dimension code snippet**
+````sql
+CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Parts_Dim` (
+  `Part_ID` INT NOT NULL,
+  `Part_name` VARCHAR(100) NULL,
+  `Quantity` INT NULL,
+  `Unit_price` DECIMAL(10,2) NULL,
+  `Total_price` DECIMAL(10,2) NULL,
+  PRIMARY KEY (`Part_ID`))
+````
+
+
+# Location Dimension Table
+
+![image](https://github.com/user-attachments/assets/adf14a3b-0098-46af-926e-3487bc41f730)
+
+
+**Primary Key**: **Location ID**
+
+**Relationship between Location and Facts Table** : **One-To-Many Relationship**
+
+**Logical Explanation**
+The Location Dimension table provides information about various repair shop locations and allows for analysis. 
+- Location Performance: Sales and service performance based on location. 
+- Analyze regional trends in revenue and service demand.
+
+**Location dimension code snippet**
+````sql
+CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Location_Dim` (
+  `Location_ID` INT NOT NULL,
+  `Shop_name` VARCHAR(100) NULL,
+  `Address` VARCHAR(100) NULL,
+  PRIMARY KEY (`Location_ID`))
+````
+
+
+# Date Dimension Table
+
+![image](https://github.com/user-attachments/assets/3134da05-95d2-4458-9061-e495c35f11c5)
+
+
+**Primary Key**: **Date**
+
+**Relationship between Date and Facts Table** : **One-To-Many Relationship**
+
+**Logical Explanation**
+The Date Dimension table provides comprehensive financial information depending on transaction time.
+
+
+**Date dimension code snippet**
+````sql
+CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Date_Dim` (
+  `Date` DATE NOT NULL,
+  `Due_date` DATE NULL,
+  `Day_of_the_week` VARCHAR(45) NULL,
+  `Month` INT NULL,
+  `Year` INT NULL,
+  PRIMARY KEY (`Date`))
+````
+
+
+
+# E-R Diagram Representing Facts and Dimensions Table
+
+![E-R Diagram](https://github.com/user-attachments/assets/28e7368d-dd7b-452d-8be3-b98310ee7920)
+
+
+
+# E-R Diagram Showing the Relationship Between Primary Keys and Foreign Keys
+
+![image](https://github.com/user-attachments/assets/4bf8c158-aa5d-41a7-ab7a-e39b8809ef8c)
 
