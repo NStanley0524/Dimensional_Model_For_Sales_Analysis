@@ -466,6 +466,15 @@ CREATE TABLE IF NOT EXISTS `DA-NStanley24`.`Date_Dim` (
 
 # Loading Data Into Tables
 
-Data was loaded into the tables, ensuring foreign keys are linked correctly
+Tables were created to be able to answer various business questions and data was loaded into the tables, ensuring foreign keys are linked correctly.
 
-Data for these tables were gotten from an extended data of the sales receipt that can be accessed [here]
+
+To see the full scipt for creating the tables, See [here]
+
+Data for these tables were gotten from an extended data of the sales receipt that can be accessed [here](https://github.com/NStanley0524/Dimensional_Model_For_Sales_Analysis/tree/main/Sample_Data)
+
+
+Example of loading data into the tables:
+
+![image](https://github.com/user-attachments/assets/acd5fc9b-cc54-4753-af6e-32e591f1e3da)
+
